@@ -10,10 +10,19 @@ public class Person {
 		this.firstName = firstName;
 	}
 
-	/*
-	 * Piuttosto che confrontare le aree di memoria, questo override del metodo
-	 * equals confronta i valori delle proprieta'
-	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(firstName);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -28,7 +37,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "(nome: " + firstName + ")";
+		return "Person [firstName=" + firstName + "]";
 	}
 
 }
